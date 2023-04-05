@@ -1,0 +1,46 @@
+﻿@inject TranslationService translationService
+@inject DateService dateService
+
+@model CategoryDisplay[]
+
+<div class="categories container">
+    <div class="row head d-none d-md-flex">
+        <p class="col-5">@translationService.Translate("SHARED.CATEGORY")</p>
+        <p class="col-2">@translationService.Translate("SHARED.TOPICS")</p>
+        <p class="col-5">@translationService.Translate("SHARED.LATEST")</p>
+    </div>
+
+    @foreach (var display in Model) {
+        <div class="category row">
+
+            <div class="col-5">
+                <a class="category-title" href="/category/@display.Category.Id">@translationService.Translate($"CATEGORY.{@display.Category.Id}.NAME".ToUpper())</a>
+                <p class="category-description d-none d-md-block">@translationService.Translate($"CATEGORY.{@display.Category.Id}.DESCRIPTION".ToUpper())</p>
+            </div>
+
+            <div class="col-2 category-topics d-none d-md-block">
+                <span>@display.TopicDisplays.Length</span>
+            </div>
+
+            <div class="col-md-5 container">
+                @foreach (var topicDisplay in display.TopicDisplays.Take(5)) {
+                    <div class="category-topic row">
+
+                        <div class="d-flex d-md-block col-md category-topic-name">
+                            <a class="category-topic-name" href="/topic/@topicDisplay.Topic.Id/@topicDisplay.Posts[0].Id">
+                                @topicDisplay.Topic.Name
+                            </a>
+
+                            <span class="d-inline d-md-none text-nowrap category-topic-date">@dateService.DateAgo(topicDisplay.Posts[0].CreatedAt)</span>
+
+                            <p class="d-block d-md-none category-topic-replies ms-auto">@(topicDisplay.Posts.Length - 1)</p>
+                        </div>
+
+                        <span class="category-topic-date d-none d-md-block col-md-auto">@dateService.DateAgo(@topicDisplay.Posts[0].CreatedAt)</span>
+
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>

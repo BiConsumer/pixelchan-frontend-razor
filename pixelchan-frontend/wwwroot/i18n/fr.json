@@ -1,0 +1,157 @@
+{
+  "LANG": {
+    "EN": {
+      "NAME": "Anglais",
+      "FLAG": "united-states"
+    },
+    "FR": {
+      "NAME": "Français",
+      "FLAG": "france"
+    },
+    "ES": {
+      "NAME": "Espagnol",
+      "FLAG": "spain"
+    }
+  },
+
+  "TIME": {
+    "AGO": "Il y a {{value}} {{unit}}",
+    "JUST-NOW": "Il y a quelque secondes",
+    "SECOND": {
+      "SINGULAR": "seconde",
+      "PLURAL": "secondes"
+    },
+    "MINUTE": {
+      "SINGULAR": "minute",
+      "PLURAL": "minutes"
+    },
+    "HOUR": {
+      "SINGULAR": "heure",
+      "PLURAL": "heures"
+    },
+    "DAY": {
+      "SINGULAR": "jour",
+      "PLURAL": "jours"
+    },
+    "WEEK": {
+      "SINGULAR": "semaine",
+      "PLURAL": "semaines"
+    },
+    "MONTH": {
+      "SINGULAR": "mois",
+      "PLURAL": "mois"
+    },
+    "YEAR": {
+      "SINGULAR": "année",
+      "PLURAL": "années"
+    }
+  },
+
+  "CATEGORY": {
+    "TESTING": {
+      "NAME": "Essai",
+      "DESCRIPTION": "Catégorie d'essai"
+    },
+    "QUESTIONS": {
+      "NAME": "Questions",
+      "DESCRIPTION": "Utilisez cette catégorie pour poser des questions et discuter de différents sujets"
+    },
+    "CONFESSIONS": {
+      "NAME": "Aveux",
+      "DESCRIPTION": "Utilisez cette catégorie pour avouer quelque chose que le monde ne devrait pas savoir..."
+    },
+    "INTRODUCTIONS": {
+      "NAME": "Présentations",
+      "DESCRIPTION": "Utilisez cette catégorie pour vous présenter"
+    },
+    "PETS": {
+      "NAME": "Animaux",
+      "DESCRIPTION": "Utilisez cette catégorie pour parler d'animaux"
+    },
+    "MEMES": {
+      "NAME": "Mèmes",
+      "DESCRIPTION": "Utilisez cette catégorie pour parler de mèmes"
+    },
+    "FOOD": {
+      "NAME": "Nourriture",
+      "DESCRIPTION": "Utilisez cette catégorie pour parler de nourriture"
+    },
+    "VIDEO_GAMES": {
+      "NAME": "Jeux",
+      "DESCRIPTION": "Utilisez cette catégorie pour parler de jeux vidéo"
+    },
+
+    "NOT-FOUND": "La catégorie {{name}} n'existe pas"
+  },
+
+  "HEADER": {
+    "START-NEW-TOPIC": "Nouveau sujet",
+    "NEW-TOPIC": "Nouveau sujet",
+    "SEARCH": "Rechercher un sujet"
+  },
+
+  "NAV": {
+    "TITLE": "NAVIGATION",
+    "HOME": "Accueuil",
+    "FAVORITES": "Favoris",
+    "SEARCH": "Rechercher"
+  },
+
+  "TOP": {
+    "TITLE": "Sujets chauds"
+  },
+
+  "FOOTER": {
+    "COPYRIGHT": "Tous droits réservés à Orlando Dieguez"
+  },
+
+  "SHARED": {
+    "CATEGORY": "Catégorie",
+    "TOPIC": "Sujet",
+    "TOPICS": "Sujets",
+    "LATEST": "Récent",
+    "REPLIES": "Commentaires",
+    "ACTIVITY": "Activité",
+    "POPULAR": "POPULAIRE"
+  },
+
+  "SEARCH": {
+    "KEYWORDS": {
+      "LABEL": "Mots clés",
+      "PLACEHOLDER": "Écrivez un ou plusieurs mots-clés"
+    },
+
+    "FAVORITES": {
+      "LABEL": "Nombre de favoris",
+      "MIN": "Minimum",
+      "MAX": "Maximum"
+    },
+
+    "POPULAR": {
+      "LABEL": "Populaire",
+      "NONE": "Peu importe",
+      "YES": "Oui",
+      "NO": "Non"
+    },
+
+    "CATEGORIES": "Catégories",
+    "RESET": "Effacer",
+    "SEARCH": "Rechercher"
+  },
+
+  "CREATE": {
+    "TITLE": "Créer un sujet",
+    "NAME": {
+      "LABEL": "Nom",
+      "PLACEHOLDER": "Nom de votre sujet"
+    },
+    "CONTENT": "Contenu",
+    "CREATE": "Créer"
+  },
+
+  "TOPIC": {
+    "COMMENT": "Votre commentaire",
+    "SEND": "Envoyer",
+    "NOT-FOUND": "Le sujet {{name}} n'existe pas"
+  }
+}

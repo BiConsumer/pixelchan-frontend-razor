@@ -1,0 +1,157 @@
+{
+  "LANG": {
+    "EN": {
+      "NAME": "English",
+      "FLAG": "united-states"
+    },
+    "FR": {
+      "NAME": "French",
+      "FLAG": "france"
+    },
+    "ES": {
+      "NAME": "Spanish",
+      "FLAG": "spain"
+    }
+  },
+
+  "TIME": {
+    "AGO": "{{value}} {{unit}} ago",
+    "JUST-NOW": "Just now",
+    "SECOND": {
+      "SINGULAR": "second",
+      "PLURAL": "seconds"
+    },
+    "MINUTE": {
+      "SINGULAR": "minute",
+      "PLURAL": "minutes"
+    },
+    "HOUR": {
+      "SINGULAR": "hour",
+      "PLURAL": "hours"
+    },
+    "DAY": {
+      "SINGULAR": "day",
+      "PLURAL": "days"
+    },
+    "WEEK": {
+      "SINGULAR": "week",
+      "PLURAL": "weeks"
+    },
+    "MONTH": {
+      "SINGULAR": "month",
+      "PLURAL": "months"
+    },
+    "YEAR": {
+      "SINGULAR": "year",
+      "PLURAL": "years"
+    }
+  },
+
+  "CATEGORY": {
+    "TESTING": {
+      "NAME": "Testing",
+      "DESCRIPTION": "Test category"
+    },
+    "QUESTIONS": {
+      "NAME": "Questions",
+      "DESCRIPTION": "Use this category to ask questions and discuss different topics"
+    },
+    "CONFESSIONS": {
+      "NAME": "Confessions",
+      "DESCRIPTION": "Use this category to confess something that people shouldn't know..."
+    },
+    "INTRODUCTIONS": {
+      "NAME": "Introductions",
+      "DESCRIPTION": "Use this category to introduce yourself"
+    },
+    "PETS": {
+      "NAME": "Pets",
+      "DESCRIPTION": "Use this category to talk about pets"
+    },
+    "MEMES": {
+      "NAME": "Memes",
+      "DESCRIPTION": "Use this category to talk about memes"
+    },
+    "FOOD": {
+      "NAME": "Food",
+      "DESCRIPTION": "Use this category to talk about food"
+    },
+    "VIDEO_GAMES": {
+      "NAME": "Gaming",
+      "DESCRIPTION": "Use this category to talk about video games"
+    },
+
+    "NOT-FOUND": "Could not find category named {{name}}"
+  },
+
+  "HEADER": {
+    "START-NEW-TOPIC": "Start a New Topic",
+    "NEW-TOPIC": "New Topic",
+    "SEARCH": "Search for Topics"
+  },
+
+  "NAV": {
+    "TITLE": "MENU",
+    "HOME": "Home",
+    "FAVORITES": "Favorites",
+    "SEARCH": "Search"
+  },
+
+  "TOP": {
+    "TITLE": "Top Topics"
+  },
+
+  "FOOTER": {
+    "COPYRIGHT": "All rights reserved to Orlando Dieguez"
+  },
+
+  "SHARED": {
+    "CATEGORY": "Category",
+    "TOPIC": "Topic",
+    "TOPICS": "Topics",
+    "LATEST": "Latest",
+    "REPLIES": "Replies",
+    "ACTIVITY": "Activity",
+    "POPULAR": "POPULAR"
+  },
+
+  "SEARCH": {
+    "KEYWORDS": {
+      "LABEL": "Keywords",
+      "PLACEHOLDER": "Write one or many keywords"
+    },
+
+    "FAVORITES": {
+      "LABEL": "Amount of favorites",
+      "MIN": "Min",
+      "MAX": "Max"
+    },
+
+    "POPULAR": {
+      "LABEL": "Popular",
+      "NONE": "Not important",
+      "YES": "Yes",
+      "NO": "No"
+    },
+
+    "CATEGORIES": "Categories",
+    "RESET": "Reset",
+    "SEARCH": "Search"
+  },
+
+  "CREATE": {
+    "TITLE": "Create Topic",
+    "NAME": {
+      "LABEL": "Name",
+      "PLACEHOLDER": "Name of your topic"
+    },
+    "CONTENT": "Content",
+    "CREATE": "Create"
+  },
+
+  "TOPIC": {
+    "COMMENT": "Your comment",
+    "SEND": "Send",
+    "NOT-FOUND": "Could not find topic named {{name}}"
+  }
+}

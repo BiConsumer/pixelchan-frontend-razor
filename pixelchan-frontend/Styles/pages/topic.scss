@@ -1,0 +1,131 @@
+.topic {
+
+    .favorite {
+        display: flex;
+        margin-top: -1rem;
+        margin-right: -1rem;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0;
+
+        p {
+            color: $color-tertiary-dark;
+            font-weight: 900;
+            margin: 0;
+            padding: 0;
+        }
+
+        .heart {
+            color: $color-tertiary;
+            font-size: 1.5rem;
+            vertical-align: text-bottom;
+            margin: 1rem 1rem 1rem 0.5rem;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                color: $color-secondary
+            }
+        }
+    }
+
+    .initial {
+        border-bottom: 1px solid $color-grey-light-3;
+        margin-bottom: 2rem;
+
+        &-content {
+            padding-top: 1rem;
+            color: $color-tertiary-dark;
+            word-wrap: break-word;
+            margin: 0;
+        }
+
+        &-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &-category {
+                font-size: 0.95rem;
+                text-align: center;
+                text-decoration: none;
+                vertical-align: middle;
+                margin-left: 1rem;
+                color: $color-primary;
+                background-color: $color-secondary;
+                border-radius: 5px;
+                text-transform: uppercase;
+                transition: 0.2s;
+
+                &:hover {
+                    background-color: darken($color-secondary, 10%);
+                }
+            }
+        }
+    }
+
+    .post {
+        margin-left: 1.5rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+
+        transition: background-color 1.2s;
+
+        &-highlight {
+            background-color: #f4fab6;
+            transition: background-color 0.3s;
+        }
+
+        &-author {
+            color: $color-secondary;
+            padding: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        &-content {
+            color: $color-tertiary-dark;
+            word-wrap: break-word;
+            //white-space: pre-line;
+        }
+
+        &-date {
+            justify-self: right;
+            text-align: right;
+            width: 100%;
+            color: $color-tertiary;
+            font-style: italic;
+            margin: 0;
+        }
+    }
+
+    .comment {
+        resize: none;
+        min-height: 10rem;
+
+        &-bar {
+            padding-top: 1rem;
+
+            .counter {
+                margin-right: 0.5rem;
+                padding-right: 0.5rem;
+                border-right: 1px solid $color-grey-dark;
+            }
+
+            .send {
+                padding: 0.4rem 1rem 0.4rem 1rem;
+                border-radius: 10px;
+
+                &-low {
+                    color: #f8a303;
+                }
+
+                &-zero {
+                    color: $color-red;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+// -- Colors Variables -- //
+
+$color-primary: #fcfcfc;
+$color-secondary: #4e62ce;
+$color-tertiary: #bbbbbb;
+$color-tertiary-dark: #797979;
+
+$color-white: #fff;
+$color-black: #000;
+$color-light-black: #050404;
+
+$color-heart: $color-secondary;
+
+$color-grey-light: #f7f7f7;
+$color-grey-light-2: #eeeeee;
+$color-grey-light-3: #d5d5d5;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-text: #212529;
+
+$color-red: #f57296;
+
+// -- Font -- //
+
+$default-font-size: 1.6rem;
+$font-body: cera-round-pro;
+
+// -- Gradient -- //
+$shine: linear-gradient(
+  120deg,
+  rgba(255,255,255, 0) 30%,
+  rgba(255,255,255, .8),
+  rgba(255,255,255, 0) 70%
+);

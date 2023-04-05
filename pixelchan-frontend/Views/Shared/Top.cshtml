@@ -1,0 +1,13 @@
+﻿@inject TranslationService translationService
+@inject TopicService topicService
+
+<div class="top container d-none d-xl-block">
+    <h2>@translationService.Translate("TOP.TITLE")</h2>
+
+    @foreach (var topic in topicService.List().OrderByDescending(topic => topic.Favorites).Take(6)) {
+        <div class="topic row">
+            <a class="link col" href="topic/@(topic.Id)">@topic.Name</a>
+            <p class="col-auto favorites">@topic.Favorites<i class="fa-solid fa-heart heart"></i></p>
+        </div>
+    }
+</div>

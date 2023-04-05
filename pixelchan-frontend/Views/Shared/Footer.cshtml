@@ -1,0 +1,35 @@
+﻿@inject TranslationService translationService
+
+<footer class="footer container-fluid">
+    <div class="row">
+
+        <div class="col-12 logo-text">
+            <i class="fa-solid fa-cube"></i><p class="d-inline">pixel<span>chan</span></p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-12">
+            <p>&copy; 2023 @translationService.Translate("FOOTER.COPYRIGHT")</p>
+        </div>
+
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+
+        <div class="col-auto">
+            <a href="https://github.com/BiConsumer/pixelchan-backend" target="_blank">
+                <i class="fa-solid fa-layer-group footer__reference"></i>
+            </a>
+        </div>
+
+        <div class="col-auto">
+            <a href="https://github.com/BiConsumer/pixelchan-frontend" target="_blank">
+                <i class="fa-solid fa-copy footer__reference"></i>
+            </a>
+        </div>
+
+    </div>
+</footer>

@@ -1,0 +1,19 @@
+.notfound {
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .fa-solid {
+        font-size: 6rem;
+        color: $color-secondary;
+        margin-bottom: 2rem;
+    }
+}

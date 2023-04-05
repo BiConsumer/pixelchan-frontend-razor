@@ -1,0 +1,18 @@
+﻿@inject TranslationService translationService
+
+<nav class="nav justify-content-center d-none d-md-flex">
+    <ul>
+        <p class="title">@translationService.Translate("NAV.TITLE")</p>
+        <li><a href="/home" class="item @NavigatorActive("Home", "item-active")"><i class="icon fa-solid fa-house"></i>@translationService.Translate("NAV.HOME")</a></li>
+        <li><a href="/favorites" class="item @NavigatorActive("Favorites", "item-active")"><i class="icon fa-solid fa-heart"></i>@translationService.Translate("NAV.FAVORITES")</a></li>
+        <li><a href="/search" class="item @NavigatorActive("Search", "item-active")"><i class="icon fa-solid fa-magnifying-glass-plus"></i>@translationService.Translate("NAV.SEARCH")</a></li>
+    </ul>
+</nav>
+
+@{
+
+   string NavigatorActive(string controller, string activeClass) {
+        return ViewContext.RouteData.Values["Controller"].ToString() == controller.ToString() ? activeClass : "";
+   }
+
+}

@@ -1,0 +1,38 @@
+﻿@inject TranslationService translationService
+@inject DateService dateService
+
+@model TopicDisplay[]
+
+<div class="category container">
+    <div class="row head d-none d-md-flex">
+        <p class="col-5">@translationService.Translate("SHARED.TOPICS")</p>
+        <p class="col-2">@translationService.Translate("SHARED.REPLIES")</p>
+        <p class="col-5">@translationService.Translate("SHARED.ACTIVITY")</p>
+    </div>
+
+     @foreach (var display in Model) {
+        <div class="topic row">
+
+            <div class="col-8 col-md-5 d-inline-flex align-items-start">
+                <a class="topic-title cursor-pointer" href="/topic/@display.Topic.Id">@display.Topic.Name</a>
+                <span *ngIf="display.topic.favorites >= POPULAR_COUNT" class="badge topic-hot">@translationService.Translate("SHARED.POPULAR")</span>
+            </div>
+
+            <div class="topic-replies col-4 text-end d-block d-md-none">@display.Posts.Length-1</div>
+
+            <div class="col-2 topic-replies d-none d-md-block">
+                <span>@display.Posts.Length-1</span>
+            </div>
+
+            <div class="col-12 col-md-5 container">
+                @foreach (var post in display.Posts.Take(5)) {
+                    <div class="topic-post row">
+                        <a class="topic-post-name col" href="/topic/@display.Topic.Id/@post.Id">@post.Content</a>
+                        <p class="topic-post-date col-auto">@dateService.DateAgo(post.CreatedAt)</p>
+                    </div>
+                }
+            </div>
+
+        </div>
+     }
+</div>

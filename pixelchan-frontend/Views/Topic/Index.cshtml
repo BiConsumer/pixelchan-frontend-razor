@@ -1,0 +1,95 @@
+﻿@inject TranslationService translationService
+@inject DateService dateService
+
+@model TopicDisplay
+
+<div class="topic container">
+
+    <div id="@Model.Posts[0].Id" class="initial">
+        <div class="d-flex align-items-center">
+            <h1 class="initial-title">@Model.Topic.Name</h1>
+            <a href="/category/@Model.Topic.Category" class="d-inline initial-title-category badge">@translationService.Translate($"CATEGORY.{Model.Topic.Category.ToUpper()}.NAME")</a>
+        </div>
+
+        <p class="initial-content">@Model.Posts[0].Content</p>
+
+        <div class="favorite">
+            <p>@Model.Topic.Favorites</p>
+            <i class="heart fa-regular fa-heart"></i>
+        </div>
+
+    </div>
+
+    <div class="container">
+        @foreach (var post in Model.Posts.Skip(1)) {
+            <div id="@post.Id" class="post">
+
+                <div class="d-flex">
+                    <p class="post-author">Anonymous</p>
+                    <p class="post-date">@dateService.DateAgo(post.CreatedAt)</p>
+                </div>
+
+                <p class="post-content">@post.Content</p>
+            </div>
+        }
+    </div>
+
+    <form action="/topic/@Model.Topic.Id/comment" method="get">
+        <label for="post">@translationService.Translate("TOPIC.COMMENT")</label>
+        <textarea id="content" name="content" maxlength="1000" class="form-control comment shadow-none" oninput="counter(this, 'counter', 'submit', 1000)"></textarea>
+
+        <div class="d-flex align-items-center justify-content-end comment-bar">
+            <span id="counter" class="counter d-none"></span>
+            <button id="submit" class="btn btn-primary send" type="submit" disabled>@translationService.Translate("TOPIC.SEND")</button>
+        </div>
+
+        <script type="text/javascript">
+            function counter(textarea, counterId, submitId, max) {
+                var counter = document.getElementById(counterId);
+                var submit = document.getElementById(submitId);
+
+                var remainingChars = max - textarea.value.length;
+
+                if (textarea.value.length <= 0) {
+                    counter.classList.add("d-none");
+                    submit.disabled = true;
+                } else {
+                    counter.classList.remove("d-none");
+                    submit.disabled = false;
+                }
+
+                if (remainingChars <= 0) {
+                    counter.classList.add("send-zero");
+                } else if (remainingChars <= 20) {
+                    counter.classList.remove("send-zero");
+                    counter.classList.add("send-low");
+                } else {
+                    counter.classList.remove("send-zero");
+                    counter.classList.remove("send-low");
+                }
+
+                counter.textContent = remainingChars.toString();
+            }
+        </script>
+
+    </form>
+
+    <script type="text/javascript">
+        if ('@ViewBag.Post' != "") {
+            window.addEventListener('load', function() {
+                var postElement = document.getElementById('@ViewBag.Post');
+
+                postElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+                postElement.classList.add("post-highlight");
+
+                setTimeout(function() {
+                    postElement.classList.remove("post-highlight")
+                }, 1000)
+            })
+        }
+    </script>
+</div>

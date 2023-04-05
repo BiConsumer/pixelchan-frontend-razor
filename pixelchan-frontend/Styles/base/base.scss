@@ -1,0 +1,47 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-color: darken($color-primary, 5%);
+}
+
+* {
+  font-family: $font-body;
+  font-weight: 700;
+  font-feature-settings: "ss01";
+}
+
+.main {
+  background-color: $color-primary;
+  border-radius: 10px;
+  min-height: 20rem;
+  padding: 1rem;
+
+  .spinner {
+    top: 10rem;
+  }
+}
+
+.btn-primary {
+  background-color: $color-secondary;
+  border-color: $color-secondary;
+  color: white;
+
+  &:hover {
+    background-color: darken($color-secondary, 10%);
+  }
+
+  &:disabled {
+    background-color: $color-secondary;
+    border-color: $color-secondary;
+  }
+}
+
+.cursor {
+
+  &-pointer {
+    cursor: pointer;
+  }
+}

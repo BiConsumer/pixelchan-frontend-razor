@@ -1,0 +1,114 @@
+﻿@inject TranslationService translationService
+
+<header class="header container-fluid">
+    <div class="row m-0 h-100 w-100 align-items-center justify-content-center">
+
+        <div class="col logo-text text-start text-md-center">
+            <a class="d-inline" href="/home"><i class="fa-solid fa-cube"></i>pixel<span>chan</span></a>
+        </div>
+
+        <div class="col d-none d-md-block">
+            <form class="search-bar">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" placeholder="@translationService.Translate("HEADER.SEARCH")" name="q" autocomplete="off">
+            </form>
+        </div>
+
+        <div class="col d-none d-md-block text-center">
+            <button href="/topic/create" type="button" class="create-button d-inline">
+                <i class="fa-solid fa-plus create-button__content"></i>
+                <p class="d-inline create-button__content">@translationService.Translate("HEADER.START-NEW-TOPIC")</p>
+            </button>
+        </div>
+
+        <div class="col-auto d-md-none mobile-sidebar">
+            <button class="btn" data-bs-toggle="modal" data-bs-target="#navModal">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="dropdown d-none d-sm-flex col-sm-auto p-0">
+
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="flag m-0 @LangFlag(translationService.CurrentLang)"></i>
+            </button>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdown">
+
+                <li class="cursor-pointer">
+                    <a class="dropdown-item">
+                        <i class="flag @LangFlag(translationService.CurrentLang)"></i>
+                        @LangName(translationService.CurrentLang)
+                        <i class="fa fa-check text-success ms-2"></i>
+                    </a>
+                </li>
+
+                <li><hr class="dropdown-divider" /></li>
+
+                @foreach (string lang in JsonTranslationService.LANGS) {
+                    @if (lang != translationService.CurrentLang) {
+                        <l class="cursor-pointer" onclick="location.href='@Url.Action("ChangeLang", "Home", new {lang = lang})'">
+                            <a class="dropdown-item">
+                                <i class="flag @LangFlag(lang)">
+                                </i>@LangName(lang)
+                            </a>
+                        </l>
+                    }
+                }
+            </ul>
+        </div>
+
+        <div class="modal fade" id="navModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <div class="logo-text">
+                            <a class="d-inline" href="/home"><i class="fa-solid fa-cube"></i>pixel<span>chan</span></a>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <a href="/home" class="modal-line @NavigatorActive("Home", "modal-line-active")" data-bs-dismiss="modal">
+                            <i class="icon fa-solid fa-house"></i>@translationService.Translate("NAV.HOME")
+                        </a>
+
+                        <a href="/favorites" class="modal-line @NavigatorActive("Favorites", "modal-line-active")" data-bs-dismiss="modal">
+                            <i class="icon fa-solid fa-heart"></i>@translationService.Translate("NAV.FAVORITES")
+                        </a>
+
+                        <a href="/search" class="modal-line @NavigatorActive("Search", "modal-line-active")" data-bs-dismiss="modal">
+                            <i class="icon fa-solid fa-magnifying-glass-plus"></i>@translationService.Translate("NAV.SEARCH")
+                        </a>
+
+                        <div class="modal-line modal-end">
+                            <button href="/topic/create" type="button" class="w-100 h-100 btn-create btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fa-solid fa-plus create-button__content"></i>
+                                <p class="d-inline create-button__content">@translationService.Translate("HEADER.NEW-TOPIC")</p>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+@{
+
+    string NavigatorActive(string controller, string activeClass) {
+        return ViewContext.RouteData.Values["Controller"].ToString() == controller.ToString() ? activeClass : "";
+    }
+
+    string LangName(string lang) {
+        return translationService.Translate($"LANG.{lang.ToUpper()}.NAME");
+    }
+
+    string LangFlag(string lang) {
+        return $"flag-{translationService.Translate($"LANG.{lang.ToUpper()}.FLAG")}";
+    }
+
+}
