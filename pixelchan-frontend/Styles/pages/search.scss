@@ -1,87 +1,83 @@
 .search {
+    min-height: 45rem;
 
-  min-height: 45rem;
-
-  form {
-    margin-bottom: 2rem;
-  }
-
-  .head {
-    border-bottom: 3px solid $color-secondary;
-    color: $color-tertiary-dark;
-
-    p {
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-  }
-
-  .spacing {
-    padding-bottom: 0.6rem;
-  }
-
-  .topic {
-    padding: 1rem 1rem 0 1rem;
-    border-bottom: 1px solid $color-grey-light-3;
-
-    &:last-child {
-      border-bottom: 0;
+    form {
+        margin-bottom: 2rem;
     }
 
-    &-title {
-      text-decoration: none;
-      font-size: 1rem;
-      color: $color-text;
-      transition: 0.2s;
-
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-
-      @include media-breakpoint-down(md) {
-        font-size: 1.2rem;
-      }
-
-      &:hover {
-        color: $color-secondary;
-      }
-    }
-
-    &-description {
-      color: darken($color-tertiary-dark, 10%);
-      font-weight: 500;
-    }
-
-    &-replies {
-      color: $color-tertiary-dark;
-      font-weight: 900;
-    }
-
-    &-post {
-      margin-bottom: 0.5rem;
-
-      &-name {
-        text-decoration: none;
-        color: $color-secondary;
-        transition: 0.2s;
-
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        text-align: left;
-
-        &:hover{
-          color: lighten($color-secondary, 10%);
-        }
-      }
-
-      &-date {
+    .head {
+        border-bottom: 3px solid $color-secondary;
         color: $color-tertiary-dark;
-        font-weight: 500;
-        text-align: right;
-        margin-bottom: 0;
-      }
+
+        p {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
     }
-  }
+
+    .spacing {
+        padding-bottom: 0.6rem;
+    }
+
+    .topic {
+        padding: 1rem 1rem 0 1rem;
+        border-bottom: 1px solid $color-grey-light-3;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &-title {
+            text-decoration: none;
+            font-size: 1rem;
+            color: $color-text;
+            transition: background-color 0.2s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            @include media-breakpoint-down(md) {
+                font-size: 1.2rem;
+            }
+
+            &:hover {
+                color: $color-secondary;
+            }
+        }
+
+        &-description {
+            color: darken($color-tertiary-dark, 10%);
+            font-weight: 500;
+        }
+
+        &-replies {
+            color: $color-tertiary-dark;
+            font-weight: 900;
+        }
+
+        &-post {
+            margin-bottom: 0.5rem;
+
+            &-name {
+                text-decoration: none;
+                color: $color-secondary;
+                transition: background-color 0.2s;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-align: left;
+
+                &:hover {
+                    color: lighten($color-secondary, 10%);
+                }
+            }
+
+            &-date {
+                color: $color-tertiary-dark;
+                font-weight: 500;
+                text-align: right;
+                margin-bottom: 0;
+            }
+        }
+    }
 }

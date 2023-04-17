@@ -948,7 +948,7 @@ body {
   max-width: 18rem;
   height: 3rem;
   border-radius: 10px;
-  transition: 0.2s;
+  transition: background-color 0.2s;
 }
 .header .create-button__content {
   padding-right: 0.5rem;
@@ -1028,7 +1028,7 @@ body {
 .footer__reference {
   font-size: 2rem;
   color: black;
-  transition: 0.2s;
+  transition: background-color 0.2s;
 }
 .footer__reference:hover {
   color: #4e62ce;
@@ -1053,7 +1053,7 @@ body {
 .nav .item {
   text-decoration: none;
   color: #797979;
-  transition: 0.2s;
+  transition: background-color 0.2s;
   white-space: nowrap;
   padding: 0.5rem 8rem 0.5rem 1rem;
   border-left: 5px solid transparent;
@@ -1091,7 +1091,7 @@ body {
   text-align: left;
   text-decoration: none;
   color: #4e62ce;
-  transition: 0.2s;
+  transition: background-color 0.2s;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1167,7 +1167,7 @@ body {
   text-decoration: none;
   font-size: 1.8rem;
   color: #212529;
-  transition: 0.2s;
+  transition: background-color 0.2s;
 }
 .categories .category-title:hover {
   color: #4e62ce;
@@ -1186,7 +1186,7 @@ body {
 .categories .category-topic-name {
   text-decoration: none;
   color: #4e62ce;
-  transition: 0.2s;
+  transition: background-color 0.2s;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
@@ -1234,7 +1234,7 @@ body {
   text-decoration: none;
   font-size: 1rem;
   color: #212529;
-  transition: 0.2s;
+  transition: background-color 0.2s;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1261,7 +1261,7 @@ body {
 .category .topic-post-name {
   text-decoration: none;
   color: #4e62ce;
-  transition: 0.2s;
+  transition: background-color 0.2s;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1297,7 +1297,7 @@ body {
   vertical-align: text-bottom;
   margin: 1rem 1rem 1rem 0.5rem;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background-color 0.2s;
 }
 .topic .favorite .heart:hover {
   color: #4e62ce;
@@ -1305,6 +1305,7 @@ body {
 .topic .initial {
   border-bottom: 1px solid #d5d5d5;
   margin-bottom: 2rem;
+  transition: background-color 1.2s;
 }
 .topic .initial-content {
   padding-top: 1rem;
@@ -1330,7 +1331,7 @@ body {
   background-color: #4e62ce;
   border-radius: 5px;
   text-transform: uppercase;
-  transition: 0.2s;
+  transition: background-color 0.2s;
 }
 .topic .initial-title-category:hover {
   background-color: #3347b6;
@@ -1395,7 +1396,7 @@ body {
   color: #f57296;
   font-size: 1.5rem;
   text-align: center;
-  transition: 0.2s;
+  transition: background-color 0.2s;
 }
 .favorites-delete:hover {
   color: #c00e3f;
@@ -1404,7 +1405,7 @@ body {
   text-decoration: none;
   font-size: 1rem;
   color: #212529;
-  transition: 0.2s;
+  transition: background-color 0.2s;
 }
 @media (max-width: 767.98px) {
   .favorites .topic-name {
@@ -1424,7 +1425,7 @@ body {
   background-color: #4e62ce;
   border-radius: 5px;
   text-transform: uppercase;
-  transition: 0.2s;
+  transition: background-color 0.2s;
 }
 .favorites .topic-category:hover {
   background-color: #3347b6;
@@ -1432,7 +1433,7 @@ body {
 .favorites .topic-latest {
   text-decoration: none;
   color: #4e62ce;
-  transition: 0.2s;
+  transition: background-color 0.2s;
   text-overflow: ellipsis;
 }
 .favorites .topic-latest:hover {
@@ -1473,7 +1474,7 @@ body {
   text-decoration: none;
   font-size: 1rem;
   color: #212529;
-  transition: 0.2s;
+  transition: background-color 0.2s;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1500,7 +1501,7 @@ body {
 .search .topic-post-name {
   text-decoration: none;
   color: #4e62ce;
-  transition: 0.2s;
+  transition: background-color 0.2s;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

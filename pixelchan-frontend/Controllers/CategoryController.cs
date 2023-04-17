@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Pixelchan.Models;
 using Pixelchan.Services;
 
 namespace Pixelchan.Controllers {
@@ -20,14 +21,40 @@ namespace Pixelchan.Controllers {
 		}
 
 		[Route("category/{categoryId}")]
-		public ActionResult ListTopics(string categoryId) {
-			if (!categoryService.List().Any(category => category.Id == categoryId)) {
+		[Route("category/list/{categoryId}")]
+		[Route("/{categoryId}", Order = 2)]
+		public async Task<ActionResult> ListTopics(string categoryId) {
+			var list = await categoryService.List();
+
+			string? foundCategory = list
+				.Where(category => category.Id.ToLower() == categoryId.ToLower())
+				.Select(category => category.Id)
+				.FirstOrDefault();
+
+			if (foundCategory == null) {
 				return View("NotFound", translationService.Translate("CATEGORY.NOT-FOUND", new {
 					name = categoryId
 				}));
 			}
 
-			return View(topicService.DisplaysOfCategory(categoryId));
+			return View(await topicService.DisplaysOfCategory(foundCategory));
+		}
+
+		[Route("category/{categoryIndex:int}")]
+		[Route("category/list/{categoryIndex:int}")]
+		[Route("/{categoryIndex:int}")]
+		public async Task<ActionResult> ListTopics(int categoryIndex) {
+			var list = await categoryService.List();
+
+			Category? category = list.ElementAtOrDefault(categoryIndex);
+
+			if (category == null) {
+				return View("NotFound", translationService.Translate("CATEGORY.NOT-FOUND", new {
+					name = categoryIndex
+				}));
+			}
+
+			return View(await topicService.DisplaysOfCategory(category.Id));
 		}
 	}
 }

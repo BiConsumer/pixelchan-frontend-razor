@@ -12,16 +12,18 @@ namespace Pixelchan.Services {
             this.postService = postService;
         }
 
-        public TopicDisplay[] Displays() {
-            var result = client.GetAsync(route + "/displays/").Result;
-            return JsonConvert.DeserializeObject<TopicDisplay[]>(result.Content.ReadAsStringAsync().Result).OrderByDescending(display =>
+        public async Task<TopicDisplay[]> Displays() {
+            var result = await client.GetAsync(route + "/displays/");
+
+            return JsonConvert.DeserializeObject<TopicDisplay[]>(await result.Content.ReadAsStringAsync()).OrderByDescending(display =>
                 postService.Order(display.Posts)[0].CreatedAt
             ).ToArray();
         }
 
-        public TopicDisplay[] DisplaysOfCategory(string categoryId) {
-            var result = client.GetAsync(route + "/displays/").Result;
-            return JsonConvert.DeserializeObject<TopicDisplay[]>(result.Content.ReadAsStringAsync().Result)
+        public async Task<TopicDisplay[]> DisplaysOfCategory(string categoryId) {
+            var result = await client.GetAsync(route + "/displays/");
+
+            return JsonConvert.DeserializeObject<TopicDisplay[]>(await result.Content.ReadAsStringAsync())
                 .Where(display => display.Topic.Category == categoryId)
                 .OrderByDescending(display =>
                     postService.Order(display.Posts)[0].CreatedAt

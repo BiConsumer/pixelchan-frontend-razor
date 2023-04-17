@@ -12,9 +12,10 @@ namespace Pixelchan.Services {
             this.topicService = topicService;
         }
 
-        public CategoryDisplay[] Displays() {
-            var result = client.GetAsync(route + "/displays/").Result;
-            return JsonConvert.DeserializeObject<CategoryDisplay[]>(result.Content.ReadAsStringAsync().Result).OrderByDescending(display => {
+        public async Task<CategoryDisplay[]> Displays() {
+            var result = await client.GetAsync(route + "/displays/");
+
+            return JsonConvert.DeserializeObject<CategoryDisplay[]>(await result.Content.ReadAsStringAsync()).OrderByDescending(display => {
                 if (display.TopicDisplays.Length <= 0) {
                     return display.Category.CreatedAt;
                 }

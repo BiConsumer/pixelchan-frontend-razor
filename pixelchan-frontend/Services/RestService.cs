@@ -4,11 +4,11 @@ namespace Pixelchan.Services {
 
 	public interface RestService<M> where M : Model {
 
-		M Find(string id);
+		Task<M> Find(string id);
 
-		IEnumerable<M> List();
+		Task<IEnumerable<M>> List();
 
-		M Create<P>(P partial);
+		Task<M> Create<P>(P partial);
 
 	}
 }

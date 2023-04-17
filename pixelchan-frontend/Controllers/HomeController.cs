@@ -13,14 +13,14 @@ namespace Pixelchan.Controllers {
             this.translationService = translationService;
         }
 
-        public IActionResult Index() {
-            return View(categoryService.Displays());
+        public async Task<IActionResult> Index() {
+            return View(await categoryService.Displays());
         }
 
         [Route("lang/{lang}")]
-        public IActionResult ChangeLang(string lang) {
+        public IActionResult ChangeLang(string lang, string page) {
             this.translationService.SetLang(lang);
-            return RedirectToAction("Index", "Home");
+            return Redirect(page);
         }
 	}
 }

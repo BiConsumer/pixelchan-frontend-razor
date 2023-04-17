@@ -1,49 +1,48 @@
 .top {
 
-  h2 {
-    font-size: 1rem;
-    font-weight: 700;
-  }
-
-  background-color: $color-primary;
-  padding: 1rem 1rem 0 1rem;
-  width: 15rem;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px 8px rgb(220, 220, 220);
-  min-height: 10rem;
-  height: 100%;
-
-  .topic {
-    padding-bottom: 0.5rem;
-
-    .link {
-      text-align: left;
-      text-decoration: none;
-      color: $color-secondary;
-      transition: 0.2s;
-
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
-
-      &:hover {
-        color: lighten($color-secondary, 10%)
-      }
+    h2 {
+        font-size: 1rem;
+        font-weight: 700;
     }
 
-    .favorites {
-      color: $color-tertiary-dark;
-      text-align: right;
+    background-color: $color-primary;
+    padding: 1rem 1rem 0 1rem;
+    width: 15rem;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px 8px rgb(220, 220, 220);
+    min-height: 10rem;
+    height: 100%;
+
+    .topic {
+        padding-bottom: 0.5rem;
+
+        .link {
+            text-align: left;
+            text-decoration: none;
+            color: $color-secondary;
+            transition: background-color 0.2s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+
+            &:hover {
+                color: lighten($color-secondary, 10%)
+            }
+        }
+
+        .favorites {
+            color: $color-tertiary-dark;
+            text-align: right;
+        }
+
+        .heart {
+            color: $color-heart;
+            margin-left: 0.5rem;
+        }
     }
 
-    .heart {
-      color: $color-heart;
-      margin-left: 0.5rem;
+    .spinner {
+        top: 1.8rem;
     }
-  }
-
-  .spinner {
-    top: 1.8rem;
-  }
 }

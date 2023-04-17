@@ -1,0 +1,52 @@
+﻿@inject TranslationService translationService
+@inject DateService dateService
+
+@model TopicDisplay[]
+
+<div class="favorites">
+    <div class="table-responsive">
+        <table class="table">
+
+            <thead class="head">
+                <tr>
+                    <td>@translationService.Translate("SHARED.TOPIC")</td>
+                    <td>@translationService.Translate("SHARED.CATEGORY")</td>
+                    <td>@translationService.Translate("SHARED.LATEST")</td>
+                    <td></td>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var display in Model) {
+                    <tr class="topic">
+
+                        <td>
+                            <a class="topic-name" href="/topic/@display.Topic.Id">
+                                @display.Topic.Name
+
+                                @if (display.Topic.Favorites >= 20) {
+                                    <span class="badge topic-hot">@translationService.Translate("SHARED.POPULAR")</span>
+                                }
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="/category/@display.Topic.Category" class="badge topic-category">
+                                @translationService.Translate($"CATEGORY.{display.Topic.Category.ToUpper()}.NAME")
+                            </a>
+                        </td>
+                        <td>
+                            <a class="topic-latest" href="/topic/@display.Topic.Id/@display.Posts[0].Id">@display.Posts[0].Content</a>
+                        </td>
+
+                        <td class="text-center">
+                            <i class="favorites-delete fa-solid fa-xmark"></i>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

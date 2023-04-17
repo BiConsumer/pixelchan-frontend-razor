@@ -16,22 +16,26 @@ namespace Pixelchan.Services {
             route = URL + "/" + modelRoute;
         }
 
-        public M Find(string id) {
-            var result = client.GetAsync(route + "/" + id).Result;
-            return JsonConvert.DeserializeObject<M>(result.Content.ReadAsStringAsync().Result);
+        public async Task<M> Find(string id) {
+            var result = await client.GetAsync(route + "/" + id);
+            var text = await result.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<M>(text);
         }
 
-        public IEnumerable<M> List() {
-            var result = client.GetAsync(route).Result;
-            return JsonConvert.DeserializeObject<List<M>>(result.Content.ReadAsStringAsync().Result);
+        public async Task<IEnumerable<M>> List() {
+            var result = await client.GetAsync(route);
+            var text = await result.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<List<M>>(text);
         }
 
-        public M Create<P>(P partial) {
+        public async Task<M> Create<P>(P partial) {
             var content = new StringContent(JsonConvert.SerializeObject(partial), Encoding.UTF8, "application/json");
+            var result = await client.PostAsync(route, content);
+            var text = await result.Content.ReadAsStringAsync();
 
-            return JsonConvert.DeserializeObject<M>(
-                client.PostAsync(route, content).Result.Content.ReadAsStringAsync().Result
-            );
+            return JsonConvert.DeserializeObject<M>(text);
         }
     }
 }

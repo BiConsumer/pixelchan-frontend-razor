@@ -47,7 +47,10 @@
 
                 @foreach (string lang in JsonTranslationService.LANGS) {
                     @if (lang != translationService.CurrentLang) {
-                        <l class="cursor-pointer" onclick="location.href='@Url.Action("ChangeLang", "Home", new {lang = lang})'">
+                        <l class="cursor-pointer" onclick="location.href='@Url.Action("ChangeLang", "Home", new {
+                            lang = lang, 
+                            page = Context.Request.GetEncodedPathAndQuery()
+                        })'">
                             <a class="dropdown-item">
                                 <i class="flag @LangFlag(lang)">
                                 </i>@LangName(lang)

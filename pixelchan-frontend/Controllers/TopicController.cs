@@ -22,8 +22,10 @@ namespace Pixelchan.Controllers {
 		}
 
 		[Route("topic/{topicId}/{postId?}")]
-		public ActionResult Index(string topicId, string? postId) {
-			TopicDisplay display = topicService.Displays().Where(display => display.Topic.Id == topicId).FirstOrDefault();
+		public async Task<ActionResult> Index(string topicId, string? postId) {
+			var topicDisplays = await topicService.Displays();
+
+			TopicDisplay display = topicDisplays.Where(display => display.Topic.Id == topicId).FirstOrDefault();
 
 			if (display == null) {
                 return View("NotFound", translationService.Translate("TOPIC.NOT-FOUND", new {
@@ -38,8 +40,8 @@ namespace Pixelchan.Controllers {
 		}
 
 		[Route("topic/{topicId}/comment")]
-		public ActionResult Comment(string topicId, string content) {
-			Post post = postService.Create(PostCreateRequest.Create(topicId, content));
+		public async Task<ActionResult> Comment(string topicId, string content) {
+			Post post = await postService.Create(PostCreateRequest.Create(topicId, content));
 
 			return RedirectToAction("Index", "Topic", new {
 				topicId,

@@ -6,12 +6,16 @@ namespace Pixelchan.Services {
 
         public PostService(HttpClient client) : base(client, "post") { }
 
-        public Post[] OfTopic(string topicId) {
-            return List().Where(post => post.Topic == topicId).ToArray();
+        public async Task<Post[]> OfTopic(string topicId) {
+            var list = await List();
+
+            return list.Where(post => post.Topic == topicId).ToArray();
         }
 
-        public Post[] OfTopicSortedOldest(string topicId) {
-            return List().OrderBy(post => post.CreatedAt).ToArray();
+        public async Task<Post[]> OfTopicSortedOldest(string topicId) {
+            var list = await List();
+
+            return list.OrderBy(post => post.CreatedAt).ToArray();
         }
 
         public Post[] Order(Post[] posts) {
