@@ -1,53 +1,73 @@
 ﻿using Newtonsoft.Json;
+using Pixelchan.Extensions;
 using Pixelchan.Models;
 using Pixelchan.ViewModels;
 
-namespace Pixelchan.Services {
+namespace Pixelchan.Services;
 
-    public class TopicService : AbstractRestService<Topic> {
+public class TopicService : AbstractRestService<Topic> {
 
-        private readonly PostService postService;
+    private readonly PostService postService;
 
-        public TopicService(HttpClient client, PostService postService) : base(client, "topic") {
-            this.postService = postService;
-        }
+    public TopicService(
+        HttpClient client,
+        IHttpContextAccessor contextAccessor,
+        PostService postService
+    ) : base(client, contextAccessor, "topic") 
+    {
+        this.postService = postService;
+    }
 
-        public async Task<TopicDisplay[]> Displays() {
-            var result = await client.GetAsync(route + "/displays/");
+    public async Task<TopicDisplay[]> Displays() {
+        var result = await client.GetAsync(route + "/displays/");
+        var maskedIds = Context.Session.Get<List<string>>("MASKED_TOPICS") ?? new List<string>();
 
-            return JsonConvert.DeserializeObject<TopicDisplay[]>(await result.Content.ReadAsStringAsync()).OrderByDescending(display =>
-                postService.Order(display.Posts)[0].CreatedAt
-            ).ToArray();
-        }
+        return JsonConvert.DeserializeObject<TopicDisplay[]>(await result.Content.ReadAsStringAsync()).OrderByDescending(display =>
+            postService.Order(display.Posts)[0].CreatedAt
+        ).Where(display => !maskedIds.Contains(display.Topic.Id)).ToArray();
+    }
 
-        public async Task<TopicDisplay[]> DisplaysOfCategory(string categoryId) {
-            var result = await client.GetAsync(route + "/displays/");
+    public async Task<TopicDisplay[]> DisplaysOfCategory(string categoryId) {
+        return (await Displays())
+            .Where(display => display.Topic.Category == categoryId)
+            .ToArray();
+    }
 
-            return JsonConvert.DeserializeObject<TopicDisplay[]>(await result.Content.ReadAsStringAsync())
-                .Where(display => display.Topic.Category == categoryId)
-                .OrderByDescending(display =>
-                    postService.Order(display.Posts)[0].CreatedAt
-                ).ToArray();
-        }
+    public List<TopicDisplay> Order(List<TopicDisplay> displays) {
+        var maskedIds = Context.Session.Get<List<string>>("MASKED_TOPICS") ?? new List<string>();
+        displays.RemoveAll(display => maskedIds.Contains(display.Topic.Id));
 
-        public TopicDisplay[] Order(TopicDisplay[] displays) {
-            Array.Sort(displays, (x, y) => {
-                Post[] orderedPostsOne = postService.Order(x.Posts);
-                Post[] orderedPostsTwo = postService.Order(y.Posts);
+        displays.Sort((x, y) => {
+            Post[] orderedPostsOne = postService.Order(x.Posts);
+            Post[] orderedPostsTwo = postService.Order(y.Posts);
 
-                return DateTime.Compare(orderedPostsTwo[0].CreatedAt, orderedPostsOne[0].CreatedAt);
-            });
+            return DateTime.Compare(orderedPostsTwo[0].CreatedAt, orderedPostsOne[0].CreatedAt);
+        });
 
-            return displays;
-        }
+        return displays;
+    }
 
-        public void Favorite(string topicId) {
-            //TODO
-        }
+    public override async Task<IEnumerable<Topic>> List() {
+        var maskedIds = Context.Session.Get<List<string>>("MASKED_TOPICS") ?? new List<string>();
 
-        public void Unfavorite(string topicId) {
-            //TODO
-        }
+        return (await base.List()).Where(topic => !maskedIds.Contains(topic.Id)).ToList();
+    }
 
+    public async Task Favorite(string topicId) {
+        await client.GetAsync(route + "/favorite/" + topicId);
+            
+        var favorites = Context.Session.Get<List<string>>("FAVORITES") ?? new List<string>();
+        favorites.Add(topicId);
+        
+        Context.Session.Set("FAVORITES", favorites);
+    }
+
+    public async Task Unfavorite(string topicId) {
+        await client.GetAsync(route + "/unfavorite/" + topicId);
+            
+        var favorites = Context.Session.Get<List<string>>("FAVORITES") ?? new List<string>();
+        favorites.Remove(topicId);
+        
+        Context.Session.Set("FAVORITES", favorites);
     }
 }

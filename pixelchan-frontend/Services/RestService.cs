@@ -1,14 +1,13 @@
 ﻿using Pixelchan.Models;
 
-namespace Pixelchan.Services {
+namespace Pixelchan.Services;
 
-	public interface RestService<M> where M : Model {
+public interface RestService<M> where M : Model {
 
-		Task<M> Find(string id);
+	Task<M> Find(string id);
 
-		Task<IEnumerable<M>> List();
+	Task<IEnumerable<M>> List();
 
-		Task<M> Create<P>(P partial);
+	Task<M> Create<P>(P partial);
 
-	}
 }

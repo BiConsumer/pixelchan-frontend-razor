@@ -1,18 +1,15 @@
 ﻿using Pixelchan.Models;
 
-namespace Pixelchan.ViewModels {
+namespace Pixelchan.ViewModels;
 
-	public class TopicDisplay {
+public class TopicDisplay {
+	
+	public Topic Topic { get; }
 
-		private readonly Topic topic;
-		private readonly Post[] posts;
+	public Post[] Posts { get; }
 
-		public Topic Topic => topic;
-		public Post[] Posts => posts;
-
-		public TopicDisplay(Topic topic, Post[] posts) {
-			this.topic = topic;
-			this.posts = posts;
-		}
+	public TopicDisplay(Topic topic, Post[] posts) {
+		Topic = topic;
+		Posts = posts;
 	}
 }

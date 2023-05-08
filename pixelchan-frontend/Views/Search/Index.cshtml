@@ -27,9 +27,9 @@
 
     <div class="row">
       <label for="popular" class="form-label">@translationService.Translate("SEARCH.POPULAR.LABEL")</label>
-      <select asp-for="Options.Popular" class="form-control">
-        <option value="none">@translationService.Translate("SEARCH.POPULAR.NONE")</option>
-        <option value="yes">@translationService.Translate("SEARCH.POPULAR.YES")</option>
+      <select asp-for="Options.Popular" class="form-select">
+        <option class="cool-font" value="none">@translationService.Translate("SEARCH.POPULAR.NONE")</option>
+        <option class="cool-font" value="yes">@translationService.Translate("SEARCH.POPULAR.YES")</option>
         <option value="no">@translationService.Translate("SEARCH.POPULAR.NO")</option>
       </select>
     </div>
@@ -68,7 +68,10 @@
 
   </form>
 
-  <div class="row head d-none d-md-flex">
+  @if (Model.Results.Length == 0) {
+      <p>@translationService.Translate("SEARCH.EMPTY")</p>
+  } else {
+    <div class="row head d-none d-md-flex">
       <p class="col-5">@translationService.Translate("SHARED.TOPIC")</p>
       <p class="col-2">@translationService.Translate("SHARED.REPLIES")</p>
       <p class="col-5">@translationService.Translate("SHARED.ACTIVITY")</p>
@@ -101,5 +104,6 @@
         </div>
       </div>
     }
+  }
 
 </div>

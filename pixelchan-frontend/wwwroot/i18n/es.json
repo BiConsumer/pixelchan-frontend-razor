@@ -137,7 +137,8 @@
 
     "CATEGORIES": "Categorías",
     "RESET": "Reiniciar",
-    "SEARCH": "Buscar"
+    "SEARCH": "Buscar",
+    "EMPTY": "Lo sentimos, no se encontraron resultados para su búsqueda."
   },
 
   "CREATE": {
@@ -151,6 +152,7 @@
   },
 
   "TOPIC": {
+    "MASK": "Ocultar",
     "COMMENT": "Tu comentario",
     "SEND": "Enviar",
     "NOT-FOUND": "No se pudo encontrar el tema llamado {{name}}"

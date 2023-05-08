@@ -1277,6 +1277,13 @@ body {
   margin-bottom: 0;
 }
 
+.topic .mask {
+  position: absolute;
+  right: 0;
+  color: #fcfcfc;
+  font-weight: 800;
+  text-transform: uppercase;
+}
 .topic .favorite {
   display: flex;
   margin-top: -1rem;
@@ -1306,6 +1313,7 @@ body {
   border-bottom: 1px solid #d5d5d5;
   margin-bottom: 2rem;
   transition: background-color 1.2s;
+  position: relative;
 }
 .topic .initial-content {
   padding-top: 1rem;

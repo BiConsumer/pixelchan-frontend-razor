@@ -5,7 +5,12 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddSassCompiler();
 builder.Services.AddHttpClient();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(option => {
+	option.IdleTimeout = TimeSpan.FromMinutes(20);
+});
 builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddSingleton<PostService>();
 builder.Services.AddSingleton<TopicService>();
 builder.Services.AddSingleton<CategoryService>();
@@ -23,6 +28,7 @@ if (app.Environment.IsDevelopment()) {
 	app.UseStaticFiles();
 }
 
+app.UseSession();
 app.UseRouting();
 app.UseEndpoints(endpoints => {
 	endpoints.MapControllerRoute(

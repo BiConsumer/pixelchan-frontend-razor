@@ -1,26 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Pixelchan.Services;
 
-namespace Pixelchan.Controllers {
+namespace Pixelchan.Controllers;
 
-	public class HomeController : Controller {
+public class HomeController : Controller {
 
-		private readonly CategoryService categoryService;
-        private readonly TranslationService translationService;
+    private readonly CategoryService categoryService;
+    private readonly TranslationService translationService;
 
-        public HomeController(CategoryService categoryService, TranslationService translationService) {
-            this.categoryService = categoryService;
-            this.translationService = translationService;
-        }
+    public HomeController(CategoryService categoryService, TranslationService translationService) {
+        this.categoryService = categoryService;
+        this.translationService = translationService;
+    }
 
-        public async Task<IActionResult> Index() {
-            return View(await categoryService.Displays());
-        }
+    public async Task<IActionResult> Index() {
+        return View(await categoryService.Displays());
+    }
 
-        [Route("lang/{lang}")]
-        public IActionResult ChangeLang(string lang, string page) {
-            this.translationService.SetLang(lang);
-            return Redirect(page);
-        }
-	}
+    [Route("lang/{lang}")]
+    public IActionResult ChangeLang(string lang, string page) {
+        this.translationService.SetLang(lang);
+        return Redirect(page);
+    }
 }

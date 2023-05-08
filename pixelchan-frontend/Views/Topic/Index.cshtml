@@ -6,6 +6,8 @@
 <div class="topic container">
 
     <div id="@Model.Posts[0].Id" class="initial">
+        <a href="/topic/@Model.Topic.Id/mask" class="btn btn-danger mask">@translationService.Translate("TOPIC.MASK")</a>
+
         <div class="d-flex align-items-center">
             <h1 class="initial-title">@Model.Topic.Name</h1>
             <a href="/category/@Model.Topic.Category" class="d-inline initial-title-category badge">@translationService.Translate($"CATEGORY.{Model.Topic.Category.ToUpper()}.NAME")</a>
@@ -13,10 +15,18 @@
 
         <p class="initial-content">@Model.Posts[0].Content</p>
 
-        <div class="favorite">
+        <form asp-controller="Topic" asp-action="Favorite" method="POST" class="favorite">
+            <input type="hidden" name="topicId" value="@Model.Topic.Id" />
+
             <p>@Model.Topic.Favorites</p>
-            <i class="heart fa-regular fa-heart"></i>
-        </div>
+            <button type="submit">
+                @if (ViewBag.IsFavorite){
+                    <i class="heart fa-solid fa-heart"></i>
+                } else{
+                    <i class="heart fa-regular fa-heart"></i>
+                }
+            </button>
+        </form>
 
     </div>
 

@@ -1,5 +1,13 @@
 .topic {
 
+    .mask {
+        position: absolute;
+        right: 0;
+        color: $color-primary;
+        font-weight: 800;
+        text-transform: uppercase;
+    }
+
     .favorite {
         display: flex;
         margin-top: -1rem;
@@ -33,6 +41,7 @@
         border-bottom: 1px solid $color-grey-light-3;
         margin-bottom: 2rem;
         transition: background-color 1.2s;
+        position: relative;
 
         &-content {
             padding-top: 1rem;

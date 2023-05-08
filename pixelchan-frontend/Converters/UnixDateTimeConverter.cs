@@ -1,20 +1,23 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Pixelchan.Converters {
+namespace Pixelchan.Converters;
 
-    public class UnixDateTimeConverter : DateTimeConverterBase {
+public class UnixDateTimeConverter : DateTimeConverterBase {
 
-        private static readonly DateTime EPOCH = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+    private static readonly DateTime EPOCH = new(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) {
-            writer.WriteRawValue(((DateTime) value - EPOCH).TotalMilliseconds + "000");
+    public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer) {
+        if (value == null) {
+            return;
         }
+        
+        writer.WriteRawValue(((DateTime) value - EPOCH).TotalMilliseconds + "000");
+    }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer) {
-            if (reader.Value == null) { return null; }
+    public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer) {
+        if (reader.Value == null) { return null; }
 
-            return DateTimeOffset.FromUnixTimeMilliseconds((long) reader.Value).UtcDateTime.ToLocalTime();
-        }
+        return DateTimeOffset.FromUnixTimeMilliseconds((long) reader.Value).UtcDateTime.ToLocalTime();
     }
 }

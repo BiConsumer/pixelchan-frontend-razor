@@ -1,14 +1,13 @@
-﻿namespace Pixelchan.Models {
+﻿namespace Pixelchan.Models;
 
-	public interface Model {
+public interface Model {
 
-		string Id { get; }
+	string Id { get; }
 
-		interface Dated : Model {
+	interface Dated : Model {
 
-			DateTime CreatedAt { get; }	
-
-		}
+		DateTime CreatedAt { get; }	
 
 	}
+
 }

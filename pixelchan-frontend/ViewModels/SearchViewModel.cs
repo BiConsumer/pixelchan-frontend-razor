@@ -1,16 +1,12 @@
-﻿namespace Pixelchan.ViewModels {
+﻿namespace Pixelchan.ViewModels;
 
-	public class SearchViewModel {
+public class SearchViewModel {
+	public SearchOptions Options { get; }
 
-		private readonly SearchOptions options;
-		private readonly TopicDisplay[] results;
+	public TopicDisplay[] Results { get; }
 
-		public SearchOptions Options => options;
-		public TopicDisplay[] Results => results;
-
-		public SearchViewModel(SearchOptions options, TopicDisplay[] results) {
-			this.options = options;
-			this.results = results;
-		}
+	public SearchViewModel(SearchOptions options, TopicDisplay[] results) {
+		Options = options;
+		Results = results;
 	}
 }

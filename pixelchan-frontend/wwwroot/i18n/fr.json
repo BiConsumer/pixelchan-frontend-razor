@@ -137,7 +137,8 @@
 
     "CATEGORIES": "Catégories",
     "RESET": "Effacer",
-    "SEARCH": "Rechercher"
+    "SEARCH": "Rechercher",
+    "EMPTY": "Désolé, aucun résultat trouvé pour votre recherche."
   },
 
   "CREATE": {
@@ -151,6 +152,7 @@
   },
 
   "TOPIC": {
+    "MASK": "Masquer",
     "COMMENT": "Votre commentaire",
     "SEND": "Envoyer",
     "NOT-FOUND": "Le sujet {{name}} n'existe pas"
