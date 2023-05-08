@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
-using Pixelchan.Models;
-using Pixelchan.ViewModels;
+﻿namespace Pixelchan.Services;
 
-namespace Pixelchan.Services;
+using Newtonsoft.Json;
+using Models;
+using ViewModels;
 
 public class CategoryService : AbstractRestService<Category> {
 

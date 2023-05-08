@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Pixelchan.Extensions;
-using Pixelchan.Models;
-using Pixelchan.Services;
-using Pixelchan.ViewModels;
+﻿namespace Pixelchan.Controllers;
 
-namespace Pixelchan.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using Extensions;
+using Models;
+using Services;
+using ViewModels;
 
 public class TopicController : Controller {
 

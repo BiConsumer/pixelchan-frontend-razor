@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Pixelchan.Services;
-using Pixelchan.ViewModels;
+﻿namespace Pixelchan.Controllers;
 
-namespace Pixelchan.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using Services;
+using ViewModels;
 
 public class SearchController : Controller {
 

@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
-using Pixelchan.Models;
-using System.Text;
+﻿namespace Pixelchan.Services;
 
-namespace Pixelchan.Services;
+using Newtonsoft.Json;
+using Models;
+using System.Text;
 
 public abstract class AbstractRestService<M> : RestService<M> where M : Model {
 

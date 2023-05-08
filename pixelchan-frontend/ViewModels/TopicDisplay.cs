@@ -1,6 +1,6 @@
-﻿using Pixelchan.Models;
+﻿namespace Pixelchan.ViewModels;
 
-namespace Pixelchan.ViewModels;
+using Models;
 
 public class TopicDisplay {
 	

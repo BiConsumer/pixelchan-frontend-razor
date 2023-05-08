@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json;
-using Pixelchan.Extensions;
-using Pixelchan.Models;
-using Pixelchan.ViewModels;
+﻿namespace Pixelchan.Services;
 
-namespace Pixelchan.Services;
+using Newtonsoft.Json;
+using Extensions;
+using Models;
+using ViewModels;
 
 public class TopicService : AbstractRestService<Topic> {
 

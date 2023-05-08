@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Pixelchan.Services;
+﻿namespace Pixelchan.Controllers;
 
-namespace Pixelchan.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using Services;
 
 public class HomeController : Controller {
 

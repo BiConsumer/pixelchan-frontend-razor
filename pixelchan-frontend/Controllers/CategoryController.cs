@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Pixelchan.Models;
-using Pixelchan.Services;
+﻿namespace Pixelchan.Controllers;
 
-namespace Pixelchan.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using Models;
+using Services;
 
 public class CategoryController : Controller {
 

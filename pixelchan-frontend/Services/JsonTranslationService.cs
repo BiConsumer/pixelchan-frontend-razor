@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿namespace Pixelchan.Services;
+
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NuGet.Packaging;
 using System.Text.RegularExpressions;
-
-namespace Pixelchan.Services;
 
 public class JsonTranslationService : TranslationService {
 
@@ -13,7 +13,7 @@ public class JsonTranslationService : TranslationService {
 
 	public const string LANG_COOKIE = "lang";
 
-	public static readonly string[] LANGS = new string[] {
+	public static readonly string[] LANGS = {
 		"fr",
 		"en",
 		"es"
@@ -32,6 +32,7 @@ public class JsonTranslationService : TranslationService {
 	public JsonTranslationService(IWebHostEnvironment hostEnvironment, IHttpContextAccessor contextAccessor) {
 		this.hostEnvironment = hostEnvironment;
 		this.contextAccessor = contextAccessor;
+		this.translations = new Dictionary<string, string>();
 
 		Load(CurrentLang);
 	}

@@ -2,7 +2,7 @@
 
 public class DateService {
 
-    private readonly static IDictionary<string, decimal> INTERVALS = new Dictionary<string, decimal>() {
+    private static readonly IDictionary<string, decimal> INTERVALS = new Dictionary<string, decimal>() {
         {"YEAR", 31536000},
         {"MONTH", 2592000},
         {"WEEK", 604800},

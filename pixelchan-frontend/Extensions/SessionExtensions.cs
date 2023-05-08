@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿namespace Pixelchan.Extensions;
 
-namespace Pixelchan.Extensions;
+using Newtonsoft.Json;
 
 public static class SessionExtensions {
 

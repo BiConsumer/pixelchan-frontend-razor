@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Pixelchan.Extensions;
-using Pixelchan.Services;
+﻿namespace Pixelchan.Controllers;
 
-namespace Pixelchan.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using Extensions;
+using Services;
 
 public class FavoritesController : Controller {
 

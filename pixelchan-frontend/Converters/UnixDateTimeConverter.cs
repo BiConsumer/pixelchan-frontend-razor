@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+﻿namespace Pixelchan.Converters;
 
-namespace Pixelchan.Converters;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 public class UnixDateTimeConverter : DateTimeConverterBase {
 

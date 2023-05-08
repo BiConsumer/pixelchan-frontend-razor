@@ -1,6 +1,6 @@
-﻿using Pixelchan.Models;
+﻿namespace Pixelchan.Services;
 
-namespace Pixelchan.Services;
+using Models;
 
 public interface RestService<M> where M : Model {
 

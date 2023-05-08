@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json;
-using Pixelchan.Converters;
+﻿namespace Pixelchan.Models;
 
-namespace Pixelchan.Models;
+using Newtonsoft.Json;
+using Converters;
 
 public class Topic : Model.Dated {
 
