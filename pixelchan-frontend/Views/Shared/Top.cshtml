@@ -6,7 +6,7 @@
 
     @foreach (var topic in (await topicService.List()).OrderByDescending(topic => topic.Favorites).Take(6)) {
         <div class="topic row">
-            <a class="link col" href="topic/@(topic.Id)">@topic.Name</a>
+            <a class="link col" href="/topic/@(topic.Id)">@topic.Name</a>
             <p class="col-auto favorites">@topic.Favorites<i class="fa-solid fa-heart heart"></i></p>
         </div>
     }

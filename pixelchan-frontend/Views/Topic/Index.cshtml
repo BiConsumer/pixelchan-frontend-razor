@@ -15,13 +15,13 @@
 
         <p class="initial-content">@Model.Posts[0].Content</p>
 
-        <form asp-controller="Topic" asp-action="Favorite" method="POST" class="favorite">
+        <form asp-controller="Favorites" asp-action="Toggle" class="favorite" method="post">
             <input type="hidden" name="topicId" value="@Model.Topic.Id" />
 
             <p>@Model.Topic.Favorites</p>
             <button type="submit">
                 @if (ViewBag.IsFavorite){
-                    <i class="heart fa-solid fa-heart"></i>
+                    <i class="heart-favorited fa-solid fa-heart"></i>
                 } else{
                     <i class="heart fa-regular fa-heart"></i>
                 }

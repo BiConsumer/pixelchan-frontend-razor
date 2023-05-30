@@ -138,7 +138,7 @@
     "CATEGORIES": "Categories",
     "RESET": "Reset",
     "SEARCH": "Search",
-    "EMPTY":  "Sorry, no results found for your search."
+    "EMPTY": "Sorry, no results found for your search."
   },
 
   "CREATE": {
@@ -152,9 +152,13 @@
   },
 
   "TOPIC": {
-    "MASK":  "Mask",
+    "MASK": "Mask",
     "COMMENT": "Your comment",
     "SEND": "Send",
     "NOT-FOUND": "Could not find topic named {{name}}"
+  },
+
+  "FAVORITES": {
+    "AMOUNT": "You have {{value}} favorite topics!"
   }
 }

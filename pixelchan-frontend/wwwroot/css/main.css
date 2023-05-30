@@ -1292,6 +1292,10 @@ body {
   align-items: center;
   padding: 0;
 }
+.topic .favorite button {
+  background: none;
+  border: none;
+}
 .topic .favorite p {
   color: #797979;
   font-weight: 900;
@@ -1305,6 +1309,17 @@ body {
   margin: 1rem 1rem 1rem 0.5rem;
   cursor: pointer;
   transition: background-color 0.2s;
+}
+.topic .favorite .heart-favorited {
+  color: #4e62ce;
+  font-size: 1.5rem;
+  vertical-align: text-bottom;
+  margin: 1rem 1rem 1rem 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.topic .favorite .heart-favorited:hover {
+  color: #bbbbbb;
 }
 .topic .favorite .heart:hover {
   color: #4e62ce;
@@ -1394,6 +1409,10 @@ body {
   color: #f57296;
 }
 
+.favorites button {
+  border: none;
+  background: none;
+}
 .favorites .head {
   border-bottom: 3px solid #4e62ce;
   color: #797979;

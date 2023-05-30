@@ -156,5 +156,9 @@
     "COMMENT": "Tu comentario",
     "SEND": "Enviar",
     "NOT-FOUND": "No se pudo encontrar el tema llamado {{name}}"
+  },
+
+  "FAVORITES": {
+    "AMOUNT": "Tienes {{value}} temas favoritos!"
   }
 }

@@ -112,7 +112,7 @@
     "LATEST": "Récent",
     "REPLIES": "Commentaires",
     "ACTIVITY": "Activité",
-    "TOTAL_FAVORITES":  "Favoris",
+    "TOTAL_FAVORITES": "Favoris",
     "POPULAR": "POPULAIRE"
   },
 
@@ -156,5 +156,9 @@
     "COMMENT": "Votre commentaire",
     "SEND": "Envoyer",
     "NOT-FOUND": "Le sujet {{name}} n'existe pas"
+  },
+
+  "FAVORITES": {
+    "AMOUNT": "Vous avez {{value}} sujets en favoris!"
   }
 }

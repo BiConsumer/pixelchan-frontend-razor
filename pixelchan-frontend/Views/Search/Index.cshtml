@@ -42,7 +42,7 @@
       @foreach (var category in await categoryService.List()) {
          <div class="form-check">
           <div>
-            <input @(Model.Options.Categories != null && Model.Options.Categories.Contains(category.Id) ? "checked" : "") id="@category.Id" name="Categories" value="@category.Id" class="form-check-input" type="checkbox">
+            <input name="Options.Categories" @(Model.Options.Categories != null && Model.Options.Categories.Contains(category.Id) ? "checked" : "") id="@category.Id" value="@category.Id" class="form-check-input" type="checkbox">
             <label class="form-check-label" for="@category.Id">@translationService.Translate($"CATEGORY.{category.Id.ToUpper()}.NAME")</label>
           </div>
         </div>

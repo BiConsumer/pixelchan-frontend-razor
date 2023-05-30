@@ -61,20 +61,5 @@ public class TopicController : Controller {
 		HttpContext.Session.Set("MASKED_TOPICS", maskedIds);
 
 		return RedirectToAction("ListTopics", "Category", new { categoryId = topic.Category});
-	}
-
-	[HttpPost]
-	[Route("topic/{topicId}/favorite")]
-	public async Task<ActionResult> Favorite(string topicId) {
-		var favorites = HttpContext.Session.Get<List<string>>("FAVORITES") ?? new List<string>();
-		if (favorites.Contains(topicId)) {
-			await topicService.Favorite(topicId);
-		} else {
-			await topicService.Unfavorite(topicId);
-		}
-
-		return RedirectToAction("Index", "Topic", new {
-			topicId
-		});
-	}
+	}	
 }

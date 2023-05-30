@@ -5,6 +5,12 @@
 
 <div class="favorites">
     <div class="table-responsive">
+        <p>
+            @translationService.Translate("FAVORITES.AMOUNT", new {
+                value = Model.Length
+            })
+        </p>
+
         <table class="table">
 
             <thead class="head">
@@ -41,7 +47,12 @@
                         </td>
 
                         <td class="text-center">
-                            <i class="favorites-delete fa-solid fa-xmark"></i>
+                            <form asp-controller="Favorites" asp-action="Delete" method="post">
+                                <input type="hidden" name="topicId" value="@display.Topic.Id" />
+                                <button type="submit">
+                                    <i class="favorites-delete fa-solid fa-xmark"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 }
